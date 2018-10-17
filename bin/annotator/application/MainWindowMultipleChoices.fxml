@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annotator.application.MainWindowMultipleChoices">
+	<children>
+		<BorderPane prefHeight="480.0" prefWidth="640.0">
+			
+			<top>
+				<MenuBar BorderPane.alignment="CENTER">
+					<menus>
+					
+						<Menu mnemonicParsing="false" text="File">
+							<items>
+								<MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#handleOpenMenuItem" text="Open…" />
+								<MenuItem fx:id="openRecentMenuItem" mnemonicParsing="false" onAction="#handleOpenRecentMenuItem" text="Open Recent…" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#handleSaveMenuItem" text="Save" />
+								<MenuItem fx:id="saveAsMenuItem" mnemonicParsing="false" onAction="#handleSaveAsMenuItem" text="Save as…" />
+								<MenuItem fx:id="exportProjectItem" mnemonicParsing="false" onAction="#handleExportProjectMenuItem" text="Export Project…" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleExitMenuItem" text="Exit" />
+							</items>
+						</Menu>
+						
+						<Menu mnemonicParsing="false" text="Edit">
+							<items>
+								<MenuItem fx:id="undoItem" mnemonicParsing="false" onAction="#handleUndoMenuItem" text="Undo changes" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="selectAllMenuItem" mnemonicParsing="false" onAction="#handleSelectAllMenuItem" text="Select All" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="copyMenuItem" mnemonicParsing="false" onAction="#handleCopyItem" text="Copy" />
+							</items>
+							<items>
+								<MenuItem fx:id="cutMenuItem" mnemonicParsing="false" onAction="#handleCutMenuItem" text="Cut" />
+							</items>
+							<items>
+								<MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" onAction="#handlePasteMenuItem" text="Paste" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#handleDeleteTextMenuItem" text="Delete Text" />
+							</items>
+						</Menu>
+						
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#handleAboutMenuItem" text="About" />
+							</items>
+						</Menu>
+						
+					</menus>
+				</MenuBar>
+			</top>
+			
+			<center>
+				<AnchorPane depthTest="ENABLE" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<children>
+						<Label layoutX="90.0" layoutY="32.0" text="Non Annotated:  " />
+						<Label fx:id="nonAnnotatedCount" layoutX="182.0" layoutY="32.0" text="8888" textFill="RED">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+						
+						<Label layoutX="274.0" layoutY="32.0" text="Annotated:  " />
+						<Label fx:id="annotatedCount" layoutX="340.0" layoutY="32.0" text="9999" textFill="#00a822">
+							<font>
+							<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+					
+						<Label layoutX="431.0" layoutY="32.0" text="Non Valid:  " />
+						<Label fx:id="nonValidCount" layoutX="493.0" layoutY="32.0" text="7777" textFill="#6f6f6f">
+							<font>
+								<Font name="System Bold" size="12.0" />
+							</font>
+						</Label>
+					
+						<Separator layoutX="20.0" layoutY="70.0" prefHeight="0.0" prefWidth="600.0" />
+
+						
+						<Label fx:id="message" layoutX="70.0" layoutY="92.0" prefWidth="500.0" text="Please read the following text and select the class in which you think it fits the best:" />
+						
+						<TextArea fx:id="textArea" blendMode="MULTIPLY" cache="true" cacheHint="QUALITY" depthTest="ENABLE" editable="false" layoutX="70.0" layoutY="116.0" prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: #7FFFD4; -fx-border-color: #1E90FF; -fx-text-fill: #8A2BE2;" wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font></TextArea>
+						
+						<CheckBox fx:id="modifiable" layoutX="474.0" layoutY="248.0" mnemonicParsing="false" text="Modify the text">
+							<font>
+								<Font size="11.0" />
+							</font>
+						</CheckBox>
+
+						<fx:define>
+							<ToggleGroup fx:id="validityGroup" />
+						</fx:define>
+
+						<RadioButton fx:id="validRadio" layoutX="70.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleValidityRadio" text="Valid [This means that the text is useful and a sentiment can be extracted]" toggleGroup="$validityGroup" />
+						
+						<RadioButton fx:id="nonValidRadio" layoutX="70.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleValidityRadio" text="Invalid [This means that the text is useless and no sentiment can be extracted]" toggleGroup="$validityGroup" />
+
+						<VBox fx:id="sentimentButtonsLayout" layoutX="10.0" layoutY="298.0" prefHeight="62.0" prefWidth="620.0" />
+
+						<Button fx:id="nextButton" layoutX="280.0" layoutY="401.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="25.0" prefWidth="80.0" text="Next" />
+						
+					</children>
+				</AnchorPane>
+			</center>
+		</BorderPane>
+	</children>
+</AnchorPane>

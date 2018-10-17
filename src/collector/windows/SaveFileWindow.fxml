@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.SaveFileWindow">
+	<children>
+
+		<Label layoutX="20.0" layoutY="12.0" text="Select where you want to save your tweets, then click Start" />
+
+		<Separator layoutX="20.0" layoutY="130.0" prefHeight="0.0" prefWidth="600.0" />
+
+		<!-- ========================= -->
+		<!--    File  Specification    -->
+		<!-- ========================= -->
+
+		<Label layoutX="20.0" layoutY="36.0" text="Destination File" textFill="GREEN">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		
+		<TextField fx:id="outputFile" layoutX="20.0" layoutY="62.0" prefHeight="25.0" prefWidth="407.0" />
+		<Button fx:id="outputFileSelect" layoutX="441.0" layoutY="62.0" mnemonicParsing="false" onAction="#handleOutputFileSelect" prefHeight="25.0" prefWidth="65.0" text="Select" />
+		<Label layoutX="519.0" layoutY="66.0" text="Status:" />
+		<Label fx:id="fileStatus" layoutX="561.0" layoutY="66.0" text="Non Valid">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		
+		<Button fx:id="startButton" layoutX="288.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="65.0" text="Start" />
+		<Button fx:id="stopButton" layoutX="288.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleStopButton" prefHeight="25.0" prefWidth="65.0" text="Stop" />
+		
+		<Separator layoutX="20.0" layoutY="438.0" prefHeight="0.0" prefWidth="600.0" />
+		
+		<Button fx:id="aboutButton" layoutX="599.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#9a9a9a, #909090), linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%); -fx-background-radius: 6, 5; -fx-background-insets: 0, 1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #395306;" text="?" />
+		
+		<HBox fx:id="tableLayout" layoutX="20.0" layoutY="140.0" prefHeight="289.0" prefWidth="600.0" />
+		<Button fx:id="mainButton" layoutX="455.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleMainButton" prefHeight="25.0" prefWidth="88.0" text="Main Menu" />
+		<Button fx:id="exitButton" layoutX="555.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="25.0" prefWidth="65.0" text="Exit" />
+
+	<Label layoutX="532.0" layoutY="112.0" text="Tweets collected" />
+	<Label fx:id="tweetsToCollect" layoutX="487.0" layoutY="112.0" prefHeight="17.0" prefWidth="42.0" text="888888" />
+	<Label layoutX="477.0" layoutY="112.0" text="/" />
+	<Label fx:id="tweetsCollected" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="112.0" prefHeight="17.0" prefWidth="42.0" text="999999" />
+      
+      	
+		
+	</children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+
+<AnchorPane prefHeight="480.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.AboutWindow">
+	<children>
+
+		<!-- Others -->
+		<ImageView fitHeight="150.0" fitWidth="149.0" layoutX="66.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../resources/images/twitter.png" />
+			</image>
+		</ImageView>
+		
+		<Button fx:id="okButton" layoutX="95.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleOkButton" prefHeight="25.0" prefWidth="90.0" text="OK" />
+      <Label layoutX="68.0" layoutY="159.0" text="Twitter Collector V1.0" textFill="#326fff">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="186.0" prefHeight="74.0" prefWidth="240.0" text="Twitter Collector is a tool to collect tweets in real time. All you need to do is to specify the number of tweets and the keywords you are looking for.&#10;" textAlignment="JUSTIFY" wrapText="true" />
+      <Label alignment="CENTER" layoutX="10.0" layoutY="460.0" prefHeight="17.0" prefWidth="260.0" text="(c) Ohtsuki Lab. Keio University, Yokohama, Japan 2017">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="260.0" prefHeight="56.0" prefWidth="240.0" text="Twitter Collector is not a commercial product and is distributed for free. If you have paid for this tool, you have been ripped off." textAlignment="JUSTIFY" wrapText="true" />
+      <Label alignment="TOP_LEFT" layoutX="20.0" layoutY="316.0" prefHeight="93.0" prefWidth="240.0" text="If you have any questions or you need any assistance (mainly if you could not get the credentials to connect to the Twitter streaming API) please contact me at:" textAlignment="JUSTIFY" wrapText="true" />
+      <Hyperlink fx:id="mailLink" onAction="#handleGoToLink" layoutX="55.0" layoutY="386.0" text="mondher.bouazizi@gmail.com" />
+		
+		
+	</children>
+</AnchorPane>

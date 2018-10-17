@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.DisplayOnScreenWindow">
+	<children>
+	
+		<Label layoutX="20.0" layoutY="16.0" prefHeight="35.0" prefWidth="720.0" text="Here you can see the tweets while they are being collected. To display all the details of a given tweet, select it then press &quot;Display tweet details&quot;" wrapText="true" />
+	
+		<Button fx:id="aboutButton" layoutX="753.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="25.0" prefWidth="27.0" style="-fx-background-color: rgba(0,0,0,0.08), linear-gradient(#9a9a9a, #909090), linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%); -fx-background-radius: 6, 5; -fx-background-insets: 0, 1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #395306;" text="?" />
+		<Button fx:id="startButton" layoutX="365.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="70.0" text="Start" />
+
+		<Separator layoutX="20.0" layoutY="83.0" prefHeight="0.0" prefWidth="760.0" />
+
+		<!-- ========================= -->
+		<!--     Display the Tweets    -->
+		<!-- ========================= -->
+		
+		<HBox fx:id="tableLayout" layoutX="20.0" layoutY="90.0" prefHeight="423.0" prefWidth="760.0" />
+
+		<Button fx:id="displayDetailsButton" layoutX="320.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleDisplayDetailsButton" prefHeight="25.0" prefWidth="160.0" text="Display tweet details" />
+		<Button fx:id="exitButton" layoutX="710.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="25.0" prefWidth="70.0" text="Exit" />
+		<Button fx:id="saveAll" layoutX="625.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleSaveAll" prefHeight="25.0" prefWidth="70.0" text="Save all" />
+
+		<Separator layoutX="20.0" layoutY="553.0" prefHeight="0.0" prefWidth="760.0" />
+		<Button fx:id="stopButton" layoutX="365.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleStopButton" prefHeight="25.0" prefWidth="70.0" text="Stop" />
+		<Button fx:id="mainButton" layoutX="20.0" layoutY="561.0" mnemonicParsing="false" onAction="#handleMainButton" text="Go to main menu" />
+		
+		<!-- ========================= -->
+		<!--      Count of tweets      -->
+		<!-- ========================= -->
+		
+		<Label fx:id="tweetsCollected" layoutX="589.0" layoutY="63.0" prefHeight="17.0" prefWidth="42.0" text="999999" />
+		<Label layoutX="633.0" layoutY="63.0" text="/" />
+		<Label fx:id="tweetsToCollect" alignment="CENTER_RIGHT" layoutX="643.0" layoutY="63.0" prefHeight="17.0" prefWidth="42.0" text="888888" />
+		<Label layoutX="691.0" layoutY="63.0" text="Tweets collected" />
+      
+
+	</children>
+</AnchorPane>

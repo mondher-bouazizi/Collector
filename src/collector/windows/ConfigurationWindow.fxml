@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+
+<AnchorPane prefHeight="640.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.ConfigurationWindow">
+	<children>
+	
+		<Label layoutX="20.0" layoutY="25.0" prefHeight="90.0" prefWidth="480.0" text="To start collecting the tweets, you need to specify the number of tweets you want to collect. You can collect at most 100,000 tweets each time.You need also to specify the keywords used to collect the tweets. You have to enter at least one keyword to start the collection of tweets. Note that the keywords are related with an OR function, so tweets that contain any of the keywords will be collected." textAlignment="JUSTIFY" wrapText="true" />
+		
+		<Separator layoutX="20.0" layoutY="124.0" prefWidth="480.0" />
+		
+		<Label layoutX="63.0" layoutY="140.0" text="Number of Tweets you want to collect:" />
+		<TextField fx:id="numberOfTweets" layoutX="297.0" layoutY="136.0" />
+		
+		<Separator layoutX="20.0" layoutY="172.0" prefWidth="480.0" />
+		
+		<Label layoutX="346.0" layoutY="210.0" text="Language" />
+		<ChoiceBox fx:id="languageChoiceBox" layoutX="409.0" layoutY="206.0" prefHeight="25.0" prefWidth="89.0" />
+		
+		<!-- ========================== -->
+		<!--      Keywords-related      -->
+		<!-- ========================== -->
+		
+		<Label layoutX="20.0" layoutY="183.0" text="Add a keyword" />
+		<TextField fx:id="keyword" layoutX="20.0" layoutY="206.0" promptText="e.g. #obama" />
+		<Button fx:id="addButton" layoutX="187.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
+		
+		<VBox fx:id="keywordsLayout" layoutX="20.0" layoutY="243.0" prefHeight="145.0" prefWidth="480.0" spacing="8.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 1; -fx-border-style: solid;">
+			<opaqueInsets>
+				<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+			</opaqueInsets>
+			<children>
+				<Label text="Keywords:" />
+			</children>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</padding>
+		</VBox>
+		
+		<Button fx:id="clearButton" layoutX="204.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleClearButton" text="Clear all keywords" />
+		
+		<Separator layoutX="20.0" layoutY="433.0" prefWidth="480.0" />
+		
+		<!-- ========================== -->
+		<!--    Radio Buttons-related   -->
+		<!-- ========================== -->
+		
+		<RadioButton fx:id="saveToFile" layoutX="20.0" layoutY="447.0" mnemonicParsing="false" text="Save to a file">
+        	<toggleGroup>
+        		<ToggleGroup fx:id="saveGroup" />
+        	</toggleGroup>
+        </RadioButton>
+		<Label layoutX="20.0" layoutY="466.0" prefHeight="41.0" prefWidth="480.0" text="Choose if you want the collected tweets to be saved in real time in a file (You will be asked to choses where you want to save later)" wrapText="true" />
+		
+		<RadioButton fx:id="displayOnScreen" layoutX="20.0" layoutY="521.0" mnemonicParsing="false" text="Display on a table" toggleGroup="$saveGroup" />
+		<Label layoutX="20.0" layoutY="540.0" prefHeight="41.0" prefWidth="480.0" text="Choose if you want to display the collected tweets on the screen (in a table) in real time (You can save them anytime later)" wrapText="true" />
+		
+		<Separator layoutX="20.0" layoutY="590.0" prefWidth="480.0" />
+		<Button fx:id="startButton" layoutX="227.0" layoutY="603.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="25.0" prefWidth="66.0" text="Start" />
+	</children>
+</AnchorPane>

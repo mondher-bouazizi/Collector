@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annotator.application.TypeOfClassification">
+
+	<children>
+	
+		<ImageView fitHeight="84.0" fitWidth="163.0" layoutX="257.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../../bin/resources/images/about.png" />
+			</image>
+		</ImageView>
+		
+		<Separator layoutX="10.0" layoutY="94.0" prefWidth="620.0" />
+
+		<Label layoutX="14.0" layoutY="105.0" text="Choose the type of classification you want to perform:" />
+		
+		<fx:define>
+			<ToggleGroup fx:id="choiceGroup"/>
+		</fx:define>
+		
+		<RadioButton fx:id="binaryClassification" onAction="#handleRadioButtons" layoutX="14.0" layoutY="134.0" mnemonicParsing="false" text="Binary sentiment classification" toggleGroup="$choiceGroup">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</RadioButton>
+		
+		<Label layoutX="14.0" layoutY="151.0" prefHeight="38.0" prefWidth="620.0" text="Choose this in case you want to classify your texts into 2 different classes which are &quot;Positive&quot; and &quot;Negative&quot;. A third implicit class is when the text is not valid and the text won't be used anyway, so don't worry about that for now." wrapText="true" />
+
+		<RadioButton fx:id="ternaryClassification" onAction="#handleRadioButtons"  layoutX="14.0" layoutY="200.0" mnemonicParsing="false" text="Ternary sentiment classification" toggleGroup="$choiceGroup">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</RadioButton>
+		
+		<Label layoutX="14.0" layoutY="217.0" prefHeight="56.0" prefWidth="620.0" text="Choose this in case you want to classify your texts into 3 different classes which are &quot;Positive&quot;, &quot;Negative&quot; and &quot;Neutral&quot;. A fouth implicit class is when the text is not valid and the text won't be used anyway, so don't worry about that for now." wrapText="true" />
+		
+		
+		<RadioButton fx:id="defaultMulticlassClassification" onAction="#handleRadioButtons"  layoutX="14.0" layoutY="281.0" mnemonicParsing="false" text="Default multi-class sentiment classification" toggleGroup="$choiceGroup">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</RadioButton>
+		
+		<Label layoutX="14.0" layoutY="298.0" prefHeight="74.0" prefWidth="620.0" text="Choose this in case you want to classify your texts into 7 different classes defined as follows:&#10;- Positive sentiments: Happiness, Love and Fun&#10;- Negative sentiments: Sadness, Anger and Boredom&#10;- Neutral sentiment: neutral" wrapText="true" />
+		
+		
+		<RadioButton fx:id="customMulticlassClassification" onAction="#displayMulticlassChoice" layoutX="14.0" layoutY="379.0" mnemonicParsing="false" text="Custom multi-class sentiment classification…" toggleGroup="$choiceGroup">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</RadioButton>
+		
+		<Label layoutX="14.0" layoutY="396.0" prefHeight="25.0" prefWidth="620.0" text="You choose which sentiments are to be used for classification." wrapText="true" />
+
+		<Separator layoutX="10.0" layoutY="428.0" prefHeight="3.0" prefWidth="620.0" />
+
+		<Button fx:id="backButton" onAction="#handleBackButton" layoutX="405.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Back" />
+		<Button fx:id="nextButton" onAction="#handleNextButton" layoutX="484.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Next" />
+		<Button fx:id="cancelButton" onAction="#handleCancelButton" layoutX="563.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Cancel" />
+
+	</children>
+</AnchorPane>

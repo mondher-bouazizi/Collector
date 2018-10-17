@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+
+<AnchorPane prefHeight="480.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.LoginWindow">
+   <children>
+   
+      <ImageView fitHeight="169.0" fitWidth="200.0" layoutX="76.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/images/login.png" />
+         </image>
+      </ImageView>
+      
+      <Label layoutX="48.0" layoutY="223.0" text="Please enter your username and password" />
+      
+      <TextField fx:id="username" layoutX="86.0" layoutY="263.0" promptText="username" />
+      <PasswordField fx:id="password" layoutX="86.0" layoutY="313.0" promptText="password" />
+      
+      <Button fx:id="loginButton" onAction="#handleLogin" layoutX="128.0" layoutY="359.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Login" />
+      <Button fx:id="createUserButton" onAction="#handleCreateUser" layoutX="122.0" layoutY="405.0" mnemonicParsing="false" text="Create user" />
+   </children>
+</AnchorPane>

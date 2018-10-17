@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annotator.application.RawFileSelection">
+	<children>
+	
+		<ImageView fitHeight="146.0" fitWidth="240.0" layoutX="207.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../../bin/resources/images/about.png" />
+			</image>
+		</ImageView>
+
+		<Separator layoutX="10.0" layoutY="166.0" prefWidth="620.0" />
+		
+		<Label layoutX="27.0" layoutY="183.0" prefHeight="85.0" prefWidth="586.0" text="A project file has by default the extention &quot;*.tap&quot;. If you have saved the file in another format, please choose &quot;all files&quot; in the options of selection of file type.&#10;If the project contain any issues and cannot be opened, please verify whether it has been modified by any other program." wrapText="true" />
+
+		<Label layoutX="27.0" layoutY="295.0" text="Please choose the project file you want to open." />
+
+		<TextField fx:id="fileLocation" layoutX="27.0" layoutY="320.0" prefHeight="25.0" prefWidth="495.0" />
+		<Button fx:id="selectButton" layoutX="537.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSelectButton" prefHeight="25.0" prefWidth="75.0" text="Select…" />
+
+		
+		
+		<Label layoutX="27.0" layoutY="371.0" prefHeight="17.0" prefWidth="65.0" text="File status:" />
+		<Label fx:id="statueOfFile" layoutX="92.0" layoutY="371.0" prefHeight="17.0" prefWidth="96.0" text="No file selected" />
+
+		<Separator layoutX="10.0" layoutY="428.0" prefHeight="3.0" prefWidth="620.0" />
+
+		<Button fx:id="backButton" layoutX="405.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="25.0" prefWidth="65.0" text="Back" />
+		<Button fx:id="nextButton" layoutX="484.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleNextButton" prefHeight="25.0" prefWidth="65.0" text="Next" />
+		<Button fx:id="cancelButton" layoutX="563.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="65.0" text="Cancel" />
+
+	</children>
+</AnchorPane>

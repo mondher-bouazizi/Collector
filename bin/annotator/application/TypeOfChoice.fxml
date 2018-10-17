@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annotator.application.TypeOfChoice">
+   <children>
+      <ImageView fitHeight="84.0" fitWidth="163.0" layoutX="257.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../bin/resources/images/about.png" />
+         </image>
+      </ImageView>
+     
+      <Separator layoutX="10.0" layoutY="94.0" prefWidth="620.0" />
+      
+      <RadioButton fx:id="singleChoiceRadio" onAction="#handleRadioButtons" layoutX="14.0" layoutY="134.0" mnemonicParsing="false" text="Single choice">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="choiceGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <Label layoutX="14.0" layoutY="105.0" text="Choose the Type of classification you want to perform:" />
+      <Label layoutX="14.0" layoutY="151.0" prefHeight="38.0" prefWidth="620.0" text="Choose this when you want the annotator to select only one class among the sentiment classes you defined. If the user is allowed to choose multiple sentiment classes, it is recommended to opt for the other option." wrapText="true" />
+      <Label layoutX="14.0" layoutY="217.0" prefHeight="56.0" prefWidth="620.0" text="Choose this when you want the annotator to select one or more class(es) among the sentiment classes you defined. If the user is not allowed to choose multiple sentiment classes, and has to choose only one class, it is recommended to opt for the other option." wrapText="true" />
+      <RadioButton fx:id="multipleChoiceRadio" onAction="#handleRadioButtons" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" text="Multiple choices" toggleGroup="$choiceGroup">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      
+      <Separator layoutX="10.0" layoutY="283.0" prefHeight="3.0" prefWidth="620.0" />
+     
+      <CheckBox fx:id="allowUserModification" layoutX="14.0" layoutY="322.0" mnemonicParsing="false" text="Allow" />
+      
+      <Label layoutX="14.0" layoutY="295.0" text="Allow the user to modify the texts by default?" />
+      <Label layoutX="14.0" layoutY="345.0" prefHeight="75.0" prefWidth="620.0" text="Opt for this option if you want to allow the user to modify the tweets by default. This means that the user is allowed to modify the text of the tweet if he feel like it will reduce the noise (remove the broken URLs, etc.).&#10;Note that this option is not recommended if you want to perform the classification in the future on real data with no manual pre-processing." wrapText="true" />
+
+      <Separator layoutX="10.0" layoutY="428.0" prefHeight="3.0" prefWidth="620.0" />
+      
+      <Button fx:id="backButton" onAction="#handleBackButton" layoutX="405.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Back" />
+      <Button fx:id="nextButton" onAction="#handleNextButton" layoutX="484.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Next" />
+      <Button fx:id="cancelButton" onAction="#handleCancelButton" layoutX="563.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Cancel" />
+      
+   </children>
+</AnchorPane>

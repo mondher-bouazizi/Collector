@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="annotator.application.WelcomeWindow">
+	<children>
+		<BorderPane prefHeight="480.0" prefWidth="640.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+					<menus>
+						<Menu mnemonicParsing="false" text="File">
+							<items>
+								<MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#handleOpenMenuItem" text="Open…" />
+								<MenuItem fx:id="openRecentMenuItem" mnemonicParsing="false" onAction="#handleOpenRecentMenuItem" text="Open Recent…" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#handleSaveMenuItem" text="Save" />
+								<MenuItem fx:id="saveAsMenuItem" mnemonicParsing="false" onAction="#handleSaveAsMenuItem" text="Save as…" />
+								<MenuItem fx:id="exportProjectItem" mnemonicParsing="false" onAction="#handleExportProjectMenuItem" text="Export Project…" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleExitMenuItem" text="Exit" />
+							</items>
+						</Menu>
+						
+						<Menu mnemonicParsing="false" text="Edit">
+							<items>
+								<MenuItem fx:id="undoItem" mnemonicParsing="false" text="Undo changes" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="selectAllMenuItem" mnemonicParsing="false" text="Select All" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="copyMenuItem" mnemonicParsing="false" text="Copy" />
+							</items>
+							<items>
+								<MenuItem fx:id="cutMenuItem" mnemonicParsing="false" text="Cut" />
+							</items>
+							<items>
+								<MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" text="Paste" />
+							</items>
+							<SeparatorMenuItem mnemonicParsing="false" />
+							<items>
+								<MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" text="Delete Text" />
+							</items>
+						</Menu>
+						
+						<Menu mnemonicParsing="false" text="Help">
+							<items>
+								<MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#handleAboutMenuItem" text="About" />
+							</items>
+						</Menu>
+						
+					</menus>
+				</MenuBar>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="276.0" layoutY="130.0" prefHeight="27.0" text="WELCOME" textAlignment="CENTER" textFill="#0400ff">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="106.0" fitWidth="196.0" layoutX="241.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../bin/resources/images/about.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="121.0" layoutY="188.0" prefHeight="133.0" prefWidth="400.0" text="You are about to be given a set of tweets along with choices. Read each text carefully and choose the best answer that fits. After you select the answer, click &quot;Next&quot; to move to the next text.&#10;The number of annotated texts, the number of non-valid texts, and the texts that have not been annotated yet will be shown on top of the window.&#10;Click &quot;Start&quot; to begin or &quot;Exit&quot; to leave." textAlignment="JUSTIFY" wrapText="true" />
+                  <Button fx:id="startButton" onAction="#handleStartButton" layoutX="277.0" layoutY="356.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Start" />
+                  <Button fx:id="exitButton" onAction="#handleExitButton" layoutX="557.0" layoutY="416.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Exit" />
+               </children>
+            </AnchorPane>
+         </center></BorderPane>
+	</children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.RadioButton?>
+
+<AnchorPane prefHeight="240.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collector.windows.DisplayTweetWindow">
+	<children>
+
+		<!-- Tweet ID -->
+		<Label layoutX="17.0" layoutY="40.0" text="Tweet ID:" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="tweetID" layoutX="117.0" layoutY="40.0" prefHeight="17.0" prefWidth="222.0" text="id of the tweet" />
+		
+		<!-- Date -->
+		<Label layoutX="17.0" layoutY="60.0" text="Date:" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="date" layoutX="117.0" layoutY="60.0" prefHeight="17.0" prefWidth="222.0" text="date" />
+		
+		<!-- Username -->
+		<Label layoutX="17.0" layoutY="80.0" text="Username:" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="username" layoutX="117.0" layoutY="80.0" prefHeight="17.0" prefWidth="222.0" text="username" />
+		
+		<!-- User Twitter ID -->
+		<Label layoutX="17.0" layoutY="100.0" text="User Tiwtter ID:" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="userTiwtterId" layoutX="117.0" layoutY="100.0" prefHeight="17.0" prefWidth="222.0" text="user twitter id" />
+		
+		<!-- User Location -->
+		<Label layoutX="17.0" layoutY="120.0" text="User location" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="userLocation" layoutX="117.0" layoutY="120.0" prefHeight="17.0" prefWidth="222.0" text="user location" />
+		
+		<!-- Tweet Message -->
+		<Label layoutX="17.0" layoutY="140.0" text="Tweet message:" textFill="#2181ff">
+			<font>
+				<Font name="System Bold" size="12.0" />
+			</font>
+		</Label>
+		<Label fx:id="message" alignment="TOP_LEFT" layoutX="117.0" layoutY="140.0" prefHeight="73.0" prefWidth="336.0" text="tweet message" textAlignment="JUSTIFY" wrapText="true" />
+		
+		<!-- Others -->
+		<ImageView fitHeight="150.0" fitWidth="149.0" layoutX="467.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../resources/images/twitter.png" />
+			</image>
+		</ImageView>
+		
+		<Button fx:id="okButton" layoutX="497.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleOkButton" prefHeight="25.0" prefWidth="90.0" text="OK" />
+		
+		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="172.0" layoutX="7.0" layoutY="33.0" stroke="#c9c9c9" strokeType="INSIDE" width="456.0" />
+		
+		
+		
+	</children>
+</AnchorPane>
