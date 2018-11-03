@@ -65,7 +65,7 @@ public class CreateUserWindow implements Initializable {
 			String usr = username.getText();
 			String pswd = Security.MD5(password.getText());
 			String key = consumerKey.getText();
-			String secret = consumerKey.getText();
+			String secret = consumerSecret.getText();
 			String token = accessToken.getText();
 			String tokenSecret = accessTokenSecret.getText();
 			User user = new User(usr, pswd, key, secret, token, tokenSecret);
