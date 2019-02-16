@@ -201,16 +201,35 @@ public class Collector{
 		
 		// Message
 		String tweetMessage = "";
-		try {
-			if (!twitterContent.isNull("text")){
-				tweetMessage = twitterContent.getString("text").replaceAll("\t", " ").replaceAll("\n", " ").replaceAll("\n", " ");
-				while (tweetMessage.contains("\t") || tweetMessage.contains("\r") || tweetMessage.contains("\n")) {
-					// TODO check if this fixes the empty lines issue
-					tweetMessage = tweetMessage.replaceAll("\t", " ").replaceAll("\r", " ").replaceAll("\n", " ");
+		
+		if (tweetContent.keySet().contains("extended_tweet")) {
+			// If we dispose of the "extended_tweet" field (which means that the field "text" contains a truncated version of the tweet
+			JSONObject JsonMessage = tweetContent.getJSONObject("extended_tweet");
+
+			try {
+				if (!JsonMessage.isNull("full_text")){
+					tweetMessage = JsonMessage.getString("full_text").replaceAll("\t", " ").replaceAll("\n", " ").replaceAll("\n", " ");
+					while (tweetMessage.contains("\t") || tweetMessage.contains("\r") || tweetMessage.contains("\n")) {
+						// TODO check if this fixes the empty lines issue
+						tweetMessage = tweetMessage.replaceAll("\t", " ").replaceAll("\r", " ").replaceAll("\n", " ");
+					}
 				}
+			} catch (org.json.JSONException e1) {
+				System.out.println("######   Error in the Message   #####" );
 			}
-		} catch (org.json.JSONException e1) {
-			System.out.println("######   Error in the Message   #####" );
+		} else {
+			// If there is no field "extended_tweet"
+			try {
+				if (!tweetContent.isNull("text")){
+					tweetMessage = tweetContent.getString("text").replaceAll("\t", " ").replaceAll("\n", " ").replaceAll("\n", " ");
+					while (tweetMessage.contains("\t") || tweetMessage.contains("\r") || tweetMessage.contains("\n")) {
+						// TODO check if this fixes the empty lines issue
+						tweetMessage = tweetMessage.replaceAll("\t", " ").replaceAll("\r", " ").replaceAll("\n", " ");
+					}
+				}
+			} catch (org.json.JSONException e1) {
+				System.out.println("######   Error in the Message   #####" );
+			}
 		}
 		
 		// Username

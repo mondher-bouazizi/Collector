@@ -45,30 +45,12 @@ public class Reader {
 
 		} catch (FileNotFoundException e1) {
 			// Load default Users
-			System.out.println("Couldn't load the users. Default User will be loaded!");
+			System.out.println("Couldn't load the users!");
 			
-//			String username = "mondher";
-//			String passwordHash = "fcea920f7412b5da7be0cf42b8c93759";
-//			String consumerKey = "htxOhzcZtB9BwAyegP39Hg1S6";
-//			String consumerSecret = "p8QJny1CSVIjebyJlMNrisb29CPcb9o9pgxM5okxUPiNwRvIzf";
-//			String token = "126685666-EvHAuj69CizpfzioC4fftbt40GXLLMhPwdAKN2dQ" ;
-//			String tokenSecret = "zkhPhOFbhL7GkwNJuDzINvII3ViKpBv2kgq5vpmrpJWqH" ;
-//			
-//			User defaultUser = new User(username, passwordHash, consumerKey, consumerSecret, token, tokenSecret);
-//			users.put(username, defaultUser);
 		} catch (IOException e) {
 			// Load default Users
-			System.out.println("Couldn't load the users. Default user will be loaded!");
-			
-//			String username = "mondher";
-//			String passwordHash = "fcea920f7412b5da7be0cf42b8c93759";
-//			String consumerKey = "htxOhzcZtB9BwAyegP39Hg1S6";
-//			String consumerSecret = "p8QJny1CSVIjebyJlMNrisb29CPcb9o9pgxM5okxUPiNwRvIzf";
-//			String token = "126685666-EvHAuj69CizpfzioC4fftbt40GXLLMhPwdAKN2dQ" ;
-//			String tokenSecret = "zkhPhOFbhL7GkwNJuDzINvII3ViKpBv2kgq5vpmrpJWqH" ;
-//			
-//			User defaultUser = new User(username, passwordHash, consumerKey, consumerSecret, token, tokenSecret);
-//			users.put(username, defaultUser);
+			System.out.println("Couldn't load the users!");
+
 		} finally {
 			if (reader != null) {
 				try {
@@ -81,17 +63,8 @@ public class Reader {
 		
 		if (users.isEmpty()) {
 			// Load default Users
-			System.out.println("User file is empty.. Only the default user will be loaded");
+			System.out.println("User file is empty..");
 
-//			String username = "mondher";
-//			String passwordHash = "fcea920f7412b5da7be0cf42b8c93759";
-//			String consumerKey = "htxOhzcZtB9BwAyegP39Hg1S6";
-//			String consumerSecret = "p8QJny1CSVIjebyJlMNrisb29CPcb9o9pgxM5okxUPiNwRvIzf";
-//			String token = "126685666-EvHAuj69CizpfzioC4fftbt40GXLLMhPwdAKN2dQ";
-//			String tokenSecret = "zkhPhOFbhL7GkwNJuDzINvII3ViKpBv2kgq5vpmrpJWqH";
-//
-//			User defaultUser = new User(username, passwordHash, consumerKey, consumerSecret, token, tokenSecret);
-//			users.put(username, defaultUser);
 		}
 		
 		return users;
