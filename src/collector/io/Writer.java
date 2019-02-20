@@ -94,6 +94,7 @@ public class Writer {
 
 	public static void saveTweets(String file, ArrayList<Tweet> tweets) {
 		File outputFile = new File(file);
+		File jsonOutputFile = new File(file.substring(0,  file.length()-4) + "_Json.json");
 		File projectDir = new File(outputFile.getParent());
 
 		boolean folderCreated = false;
@@ -122,6 +123,30 @@ public class Writer {
 				for (Tweet tweet : tweets) {
 					writer.write(tweet.getId() + t + tweet.getTime() + t + tweet.getUser() + t + tweet.getUsername() + t + tweet.getLocation() + t + tweet.getMessage() + n);
 				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				if (writer != null) {
+					try {
+						writer.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			try {
+				if (!jsonOutputFile.exists())
+					jsonOutputFile.createNewFile();
+				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(jsonOutputFile), "UTF-8"));
+				
+				writer.write("[\n");
+				for (Tweet tweet : tweets) {
+					writer.write(tweet.getFullTweet() + ",\n");
+				}
+				writer.write("]");
 				AlertBox.display("Tweets Saved Successfully", "The tweets collected so far have been saved successfully", "OK");
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

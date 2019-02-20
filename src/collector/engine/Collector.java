@@ -177,92 +177,96 @@ public class Collector{
 	 */
 	private static Tweet parseTweet(String JsonTweet) {
 		
-		JSONObject twitterContent = new JSONObject(JsonTweet);
+		JSONObject tweetContent = new JSONObject(JsonTweet);
 
-		// Time
+		// -------------------- //
+		//         Time         //
+		// -------------------- //
 		String time = "";
 		try {
-			if (!twitterContent.isNull("created_at")){
-				time = twitterContent.getString("created_at");
+			if (!tweetContent.isNull("created_at")){
+				time = tweetContent.getString("created_at");
 			}
 		} catch (org.json.JSONException e1) {
 			System.out.println("######   Error in the Time   #####" );
 		}
 		
-		// Tweet ID
+		// -------------------- //
+		//       Tweet ID       //
+		// -------------------- //
 		String tweetId = "";
 		try {
-			if (!twitterContent.isNull("id_str")){
-				tweetId = twitterContent.getString("id_str");
+			if (!tweetContent.isNull("id_str")){
+				tweetId = tweetContent.getString("id_str");
 			}
 		} catch (org.json.JSONException e1) {
 			System.out.println("######   Error in the Tweet ID   #####" );
 		}
 		
-		// Message
+		// -------------------- //
+		//       Message        //
+		// -------------------- //
 		String tweetMessage = "";
 		
-		if (tweetContent.keySet().contains("extended_tweet")) {
-			// If we dispose of the "extended_tweet" field (which means that the field "text" contains a truncated version of the tweet
-			JSONObject JsonMessage = tweetContent.getJSONObject("extended_tweet");
-
-			try {
-				if (!JsonMessage.isNull("full_text")){
-					tweetMessage = JsonMessage.getString("full_text").replaceAll("\t", " ").replaceAll("\n", " ").replaceAll("\n", " ");
-					while (tweetMessage.contains("\t") || tweetMessage.contains("\r") || tweetMessage.contains("\n")) {
-						// TODO check if this fixes the empty lines issue
-						tweetMessage = tweetMessage.replaceAll("\t", " ").replaceAll("\r", " ").replaceAll("\n", " ");
-					}
-				}
-			} catch (org.json.JSONException e1) {
-				System.out.println("######   Error in the Message   #####" );
+		// If this is a retweet (all quoted users will be dismissed
+		if (tweetContent.has("retweeted_status")) {
+			JSONObject JsonOriginal = tweetContent.getJSONObject("retweeted_status");
+			if (!JsonOriginal.isNull("extended_tweet")){
+				JSONObject JsonMessage = JsonOriginal.getJSONObject("extended_tweet");
+				tweetMessage = "RT: " + cleanup(JsonMessage.getString("full_text"));
+				
+				
+			} else {
+				tweetMessage = "RT: " + cleanup(JsonOriginal.getString("text"));
 			}
+		
+		// if this is not a retweet
 		} else {
-			// If there is no field "extended_tweet"
-			try {
-				if (!tweetContent.isNull("text")){
-					tweetMessage = tweetContent.getString("text").replaceAll("\t", " ").replaceAll("\n", " ").replaceAll("\n", " ");
-					while (tweetMessage.contains("\t") || tweetMessage.contains("\r") || tweetMessage.contains("\n")) {
-						// TODO check if this fixes the empty lines issue
-						tweetMessage = tweetMessage.replaceAll("\t", " ").replaceAll("\r", " ").replaceAll("\n", " ");
-					}
-				}
-			} catch (org.json.JSONException e1) {
-				System.out.println("######   Error in the Message   #####" );
+			if (!tweetContent.isNull("extended_tweet")){
+				JSONObject JsonMessage = tweetContent.getJSONObject("extended_tweet");
+				tweetMessage = "RT: " + cleanup(JsonMessage.getString("full_text"));
+			} else {
+				tweetMessage = "RT: " + cleanup(tweetContent.getString("text"));
 			}
 		}
 		
-		// Username
+		// -------------------- //
+		//       Username       //
+		// -------------------- //
 		String username = "";
 		try {
-			if (!twitterContent.getJSONObject("user").isNull("name")){
-				username = twitterContent.getJSONObject("user").getString("name");
+			if (!tweetContent.getJSONObject("user").isNull("name")){
+				username = tweetContent.getJSONObject("user").getString("name");
 			}
 		} catch (org.json.JSONException e1) {
 			System.out.println("######   Error in the Username   #####" );
 		}
 		
-		// User ID
+		// -------------------- //
+		//       User ID        //
+		// -------------------- //
 		String userScreenName = "";
 		try {
-			if (!twitterContent.getJSONObject("user").isNull("screen_name")){
-				userScreenName = twitterContent.getJSONObject("user").getString("screen_name");
+			if (!tweetContent.getJSONObject("user").isNull("screen_name")){
+				userScreenName = cleanup(tweetContent.getJSONObject("user").getString("screen_name"));
 			}
 		} catch (org.json.JSONException e1) {
 			System.out.println("######   Error in the User screen name   #####" );
 		}
-				
-		// Location
+		
+		// -------------------- //
+		//       Location       //
+		// -------------------- //
 		String userLocation = "";
 		try {
-			if (!twitterContent.getJSONObject("user").isNull("location")){
-				userLocation = twitterContent.getJSONObject("user").getString("location");
+			if (!tweetContent.getJSONObject("user").isNull("location")){
+				userLocation = cleanup(tweetContent.getJSONObject("user").getString("location"));
 				}
 		} catch (org.json.JSONException e1) {
 			System.out.println("######   Error in the location   #####" );
 		}
 
-		Tweet tweet = new Tweet(time, tweetId, tweetMessage, username, userScreenName, userLocation);
+		Tweet tweet = new Tweet(time, tweetId, tweetMessage, username, userScreenName, userLocation, JsonTweet);
 
 		System.out.println("\nTime: " + time
 				+ "\nTwitter Message : " + tweetMessage
